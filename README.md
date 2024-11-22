@@ -64,7 +64,13 @@ pip install -e .
 ## Data Download
 
 ### Our Own Dataset
-To train and test on our own dataset, please download the zip file shared by zhongqi, make a new folder named lerobot_datasets and unzip the downloaded dataset in the lerobot_datasets foloder. Make sure the data structure is as follows:
+To train and test on our own dataset, please:
+1. download the zip file shared by zhongqi
+2. make a new folder named lerobot_datasets
+3. unzip the downloaded dataset in the lerobot_datasets foloder. 
+
+Make sure the data structure is as follows:
+
     lerobot_datasets
     └── UnitreeG1_DualArm_1122
         ├── meta_data
