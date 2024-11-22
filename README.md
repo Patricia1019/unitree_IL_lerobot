@@ -1,5 +1,14 @@
 **Read this in other languages: [中文](README_zh.md), [日本語](README_ja.md).**
 
+# For Hyperparameter Tuning
+For Learning Rate: please refer to [text](lerobot/lerobot/configs/policy/diffusion_unitree_real_g1.yaml) and [text](lerobot/lerobot/configs/policy/act_unitree_real_g1.yaml), and change the learning rate at training.lr.
+
+Our learning rates are set as [5e-5,1e-4,5e-4].
+
+# For logger
+The current wandb id is mine, if you met with problems, please change the wandb id to your own ones (see [lerobot/](lerobot/lerobot/common/logger.py) line 112).
+
+
 # Directory Description
 
 | Directory     | Description                                                                                                                                                                    |
