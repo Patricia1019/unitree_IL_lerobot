@@ -63,6 +63,15 @@ pip install -e .
 
 ## Data Download
 
+### Our Own Dataset
+To train and test on our own dataset, please download the zip file shared by zhongqi, make a new folder named lerobot_datasets and unzip the downloaded dataset in the lerobot_datasets foloder. Make sure the data structure is as follows:
+    lerobot_datasets
+    └── UnitreeG1_DualArm_1122
+        ├── meta_data
+        ├── train
+        └── videos
+
+### Lerobot Dataset (skip)
 If you would like to use the dual-arm operation dataset collected with the Unitree G1 that we provide, you can visit [UnitreeG1_DualArmGrasping](https://huggingface.co/datasets/unitreerobotics/UnitreeG1_DualArmGrasping) .
 To download it, you can refer to the following command:
 
@@ -96,10 +105,10 @@ The storage directory structure of the downloaded data is as follows:
 Use the following command to set the data storage path:
 
 ```
-export DATA_DIR="$HOME/lerobot_datasets/"
+export DATA_DIR="path/to/your/lerobot_datasets/" 
 ```
 
-## Modify Configuration Files[optional]
+## Modify Configuration Files[optional] (skip)
 
 **Friendly Reminder:** By using the configuration files we provide, you can skip the modifications below.
 
@@ -116,14 +125,25 @@ export DATA_DIR="$HOME/lerobot_datasets/"
 ```
 cd unitree_IL_lerobot/lerobot
 ```
+- Training Diffusion Policy on our dataset:
 
-- Training Diffusion Policy:
+```
+python lerobot/scripts/train.py    policy=diffusion_unitree_real_g1    env=unitree_real_g1     dataset_repo_id=UnitreeG1_DualArm_1122
+```
+
+- Training ACT on our dataset:
+
+```
+python lerobot/scripts/train.py    policy=act_unitree_real_g1    env=unitree_real_g1     dataset_repo_id=UnitreeG1_DualArm_1122
+```
+
+- Training Diffusion Policy on UnitreeG1_DualArmGrasping Dataset (skip):
 
 ```
 python lerobot/scripts/train.py    policy=diffusion_unitree_real_g1    env=unitree_real_g1     dataset_repo_id=UnitreeG1_DualArmGrasping
 ```
 
-- Training ACT:
+- Training ACT on UnitreeG1_DualArmGrasping Dataset (skip):
 
 ```
 python lerobot/scripts/train.py    policy=act_unitree_real_g1    env=unitree_real_g1     dataset_repo_id=UnitreeG1_DualArmGrasping
