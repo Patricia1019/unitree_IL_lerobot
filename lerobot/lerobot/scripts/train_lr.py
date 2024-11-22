@@ -53,7 +53,7 @@ import pdb
 from tqdm import tqdm
 
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = "1"
+os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 def make_optimizer_and_scheduler(cfg, policy):
     if cfg.policy.name == "act":
@@ -244,7 +244,8 @@ def train(cfg: DictConfig, out_dir: str | None = None, job_name: str | None = No
     if job_name is None:
         raise NotImplementedError()
 
-
+    # pdb.set_trace()
+    out_dir = os.path.join(out_dir,f'_lr{cfg.training.lr}')
     init_logging()
     logging.info(pformat(OmegaConf.to_container(cfg)))
 
