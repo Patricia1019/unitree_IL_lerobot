@@ -155,7 +155,12 @@ python lerobot/scripts/train.py    policy=diffusion_unitree_real_g1    env=unitr
 python lerobot/scripts/train.py    policy=act_unitree_real_g1    env=unitree_real_g1     dataset_repo_id=UnitreeG1_DualArmGrasping
 ```
 
-# 4. Real Robot Testing
+# 4. Testing
+
+## Test Action Loss
+python lerobot/lerobot/scripts/eval_g1_new.py --pretrained-policy-name-or-path "$path/to/your/pretrained_model"
+
+## Real Robot Testing
 
 In `lerobot/lerobot/scripts`, add the `eval_g1.py` script and then run it.
 

@@ -77,7 +77,7 @@ from lerobot.common.utils.utils import (
     inside_slurm,
     set_global_seed,
 )
-
+import pdb
 
 def rollout(
     env: gym.vector.VectorEnv,
@@ -124,6 +124,7 @@ def rollout(
     policy.reset()
 
     observation, info = env.reset(seed=seeds)
+    # observation = {"agent_pos":observation}
     if render_callback is not None:
         render_callback(env)
 
@@ -145,12 +146,15 @@ def rollout(
     )
     while not np.all(done):
         # Numpy array to tensor and changing dictionary keys to LeRobot policy format.
+        # pdb.set_trace()
         observation = preprocess_observation(observation)
+        # pdb.set_trace()
         if return_observations:
             all_observations.append(deepcopy(observation))
 
         observation = {key: observation[key].to(device, non_blocking=True) for key in observation}
-
+        observation['observation.images.top'] = observation['observation.image']
+        # pdb.set_trace()
         with torch.inference_mode():
             action = policy.select_action(observation)
 
@@ -477,6 +481,7 @@ def main(
     log_output_dir(out_dir)
 
     logging.info("Making environment.")
+    # pdb.set_trace()
     env = make_env(hydra_cfg)
 
     logging.info("Making policy.")

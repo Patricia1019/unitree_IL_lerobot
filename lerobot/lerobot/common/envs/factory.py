@@ -17,7 +17,7 @@ import importlib
 
 import gymnasium as gym
 from omegaconf import DictConfig
-
+import pdb
 
 def make_env(cfg: DictConfig, n_envs: int | None = None) -> gym.vector.VectorEnv | None:
     """Makes a gym vector environment according to the evaluation config.
@@ -31,7 +31,7 @@ def make_env(cfg: DictConfig, n_envs: int | None = None) -> gym.vector.VectorEnv
         return
 
     package_name = f"gym_{cfg.env.name}"
-
+    # pdb.set_trace()
     try:
         importlib.import_module(package_name)
     except ModuleNotFoundError as e:

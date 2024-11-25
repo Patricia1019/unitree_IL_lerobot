@@ -244,7 +244,8 @@ def train(cfg: DictConfig, out_dir: str | None = None, job_name: str | None = No
     if job_name is None:
         raise NotImplementedError()
 
-
+    # out_dir = '/home/peiqi/projects/unitree_IL_lerobot/lerobot/outputs/train/2024-11-22/11-57-21_real_world_diffusion_default'
+    # pdb.set_trace()
     init_logging()
     logging.info(pformat(OmegaConf.to_container(cfg)))
 
@@ -304,6 +305,7 @@ def train(cfg: DictConfig, out_dir: str | None = None, job_name: str | None = No
         )
 
     # log metrics to terminal and wandb
+    # pdb.set_trace()
     logger = Logger(cfg, out_dir, wandb_job_name=job_name)
 
     set_global_seed(cfg.seed)
@@ -658,10 +660,13 @@ def train(cfg: DictConfig, out_dir: str | None = None, job_name: str | None = No
 
 @hydra.main(version_base="1.2", config_name="default", config_path="../configs")
 def train_cli(cfg: dict):
+    # pdb.set_trace()
     train(
         cfg,
         out_dir=hydra.core.hydra_config.HydraConfig.get().run.dir,
+        # out_dir = '/home/peiqi/projects/unitree_IL_lerobot/lerobot/outputs/train/2024-11-22/11-57-21_real_world_diffusion_default',
         job_name=hydra.core.hydra_config.HydraConfig.get().job.name,
+        # job_name = 'default'
     )
 
 
@@ -675,4 +680,5 @@ def train_notebook(out_dir=None, job_name=None, config_name="default", config_pa
 
 
 if __name__ == "__main__":
+    # pdb.set_trace()
     train_cli()
