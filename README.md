@@ -158,7 +158,10 @@ python lerobot/scripts/train.py    policy=act_unitree_real_g1    env=unitree_rea
 # 4. Testing
 
 ## Test Action Loss
+run 
+```
 python lerobot/lerobot/scripts/eval_g1_new.py --pretrained-policy-name-or-path "$path/to/your/pretrained_model"
+```
 
 ## Real Robot Testing
 
