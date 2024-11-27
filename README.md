@@ -27,11 +27,11 @@ Download our source code:
 ```
 cd $HOME
 
-git clone git@github.com:unitreerobotics/unitree_IL_lerobot.git
+git clone git@github.com:Patricia1019/unitree_IL_lerobot.git 
 
 OR
 
-git clone https://github.com/unitreerobotics/unitree_IL_lerobot.git
+git clone https://github.com/Patricia1019/unitree_IL_lerobot.git 
 
 ```
 
